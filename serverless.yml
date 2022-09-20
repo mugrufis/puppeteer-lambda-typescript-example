@@ -1,5 +1,4 @@
-service:
-  name: puppeteer-lambda-typescript-example
+service: puppeteer-lambda-typescript-example
 #app: your-app-name
 #tenant: your-tenant-name
 
@@ -9,7 +8,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs8.10 # 変更
+  runtime: nodejs16.x # 変更
 
 functions:
   hello:
@@ -23,4 +22,7 @@ functions:
 
 # 以下追加
 custom:
-  webpackIncludeModules: true
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
